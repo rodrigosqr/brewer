@@ -1,0 +1,74 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.rodrigo</groupId>
+	<artifactId>brewer</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+
+	<packaging>war</packaging>
+	
+	<properties>
+		<!-- Para o eclipse sempre usar o padrao UTF-8  -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+		<!-- Para o projeto nao reclamar da falta do web.xml(Por enquanto)-->
+		<failOnMissingWebXml>false</failOnMissingWebXml>
+		
+		<!-- Versao do java -->
+		<java.version>1.8</java.version>
+	
+		<!-- Versao do maven plugin	 -->
+		<maven-compiler-pluging.version>3.3</maven-compiler-pluging.version>
+		
+		<!-- Spring MVC -->
+		<spring-framework.version>4.3.2.RELEASE</spring-framework.version>
+		
+		<!-- Servlet API -->
+		<servlet.version>3.1.0</servlet.version>
+	</properties>
+	
+	<!-- ${...} usa oque foi descrito nas tags acima -->
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-pluging.version}</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
+	
+	<dependencyManagement><!-- Oferece as versões compativeis para as dependências(Portanto, não precisa colocar versões nas dependencias) -->
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-framework-bom</artifactId>
+				<version>${spring-framework.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<!-- Spring MVC -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+		</dependency>
+		
+		<!-- Servlet API -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>${servlet.version}</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+</project>
