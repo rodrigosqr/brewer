@@ -23,13 +23,16 @@
 		<maven-compiler-pluging.version>3.3</maven-compiler-pluging.version>
 		
 		<!-- Spring MVC -->
-		<spring-framework.version>4.3.0.RELEASE</spring-framework.version>
+		<spring-framework.version>4.3.3.RELEASE</spring-framework.version>
 		
 		<!-- Servlet API -->
 		<servlet.version>3.1.0</servlet.version>
 		
 		<!-- thymeleaf -->
 		<thymeleaf.version>3.0.2.RELEASE</thymeleaf.version>
+		
+		<!-- Bean Validation / Hibernate Validator -->
+		<hibernate-validator.version>5.2.4.Final</hibernate-validator.version>
 	</properties>
 	
 	<!-- ${...} usa oque foi descrito nas tags acima -->
@@ -64,6 +67,8 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
+			<!-- scope padrão, que quer dizer: Precisa dessa depencia sempre -->
+			<scope>compile</scope>
 		</dependency>
 		
 		<!-- Servlet API -->
@@ -81,6 +86,7 @@
 			<groupId>org.thymeleaf</groupId>
 			<artifactId>thymeleaf</artifactId>
 			<version>${thymeleaf.version}</version>
+			<scope>compile</scope>
 		</dependency>
 
 		<!-- Thymeleaf com o spring-->
@@ -88,6 +94,15 @@
 			<groupId>org.thymeleaf</groupId>
 			<artifactId>thymeleaf-spring4</artifactId>
 			<version>${thymeleaf.version}</version>
+			<scope>compile</scope>
 		</dependency>
+		
+		<!-- Bean Validation / Hibernate Validator -->
+  		<dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${hibernate-validator.version}</version>
+            <scope>compile</scope>
+        </dependency>
 	</dependencies>
 </project>
