@@ -13,6 +13,7 @@ import com.rodrigo.brewer.model.Cerveja;
 
 @Controller
 public class CervejasController {
+	//private static final Logger logger = LoggerFactory.getLogger(CervejasController.class);
 	
 	@RequestMapping("/cervejas/novo")
 	public String novo(Cerveja cerveja){
